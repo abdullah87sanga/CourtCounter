@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/soundcloud"
     tools:context="com.example.android.courtcounter.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/primaryLightColor">
+       >
 
 
         <LinearLayout
@@ -59,6 +60,7 @@
                     android:layout_marginLeft="24dp"
                     android:layout_marginRight="24dp"
                     android:layout_marginTop="24dp"
+                    android:background="@drawable/roundedbutton"
                     android:onClick="addThreeForTeamA"
                     android:text="+3 Points" />
 
@@ -68,6 +70,7 @@
                     android:layout_marginBottom="8dp"
                     android:layout_marginLeft="24dp"
                     android:layout_marginRight="24dp"
+                    android:background="@drawable/roundedbutton"
                     android:onClick="addTwoForTeamA"
                     android:text="+2 Points" />
 
@@ -77,6 +80,7 @@
                     android:layout_marginBottom="8dp"
                     android:layout_marginLeft="24dp"
                     android:layout_marginRight="24dp"
+                    android:background="@drawable/roundedbutton"
                     android:onClick="addOneForTeamA"
                     android:text="Free Throw" />
 
@@ -129,6 +133,7 @@
                     android:layout_marginLeft="24dp"
                     android:layout_marginRight="24dp"
                     android:layout_marginTop="24dp"
+                    android:background="@drawable/roundedbutton"
                     android:onClick="addThreeForTeamB"
                     android:text="+3 Points" />
 
@@ -138,6 +143,7 @@
                     android:layout_marginBottom="8dp"
                     android:layout_marginLeft="24dp"
                     android:layout_marginRight="24dp"
+                    android:background="@drawable/roundedbutton"
                     android:onClick="addTwoForTeamB"
                     android:text="+2 Points" />
 
@@ -147,8 +153,9 @@
                     android:layout_marginBottom="8dp"
                     android:layout_marginLeft="24dp"
                     android:layout_marginRight="24dp"
+                    android:background="@drawable/roundedbutton"
                     android:onClick="addOneForTeamB"
-                    android:text="Free Throw" />
+                    android:text="@string/FreeThrow" />
 
             </LinearLayout>
         </LinearLayout>
@@ -159,7 +166,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="100dp"
-            android:background="@color/color1"
+            android:background="@drawable/roundedbutton"
             android:fontFamily="sans-serif-light"
             android:gravity="center_horizontal"
             android:text="00:00:000"
@@ -170,6 +177,7 @@
             android:id="@+id/layout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:layout_below="@id/layout1"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
@@ -342,10 +350,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/layout2"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="30dp"
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/button_start"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -361,7 +370,7 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:onClick="stopGame"
-                android:text="STOP" />
+                android:text="Pause" />
 
             <Button
                 android:layout_width="0dp"

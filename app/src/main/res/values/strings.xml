@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Court Counter</string>
     <string name="game_statistics">Game Statistics</string>
+    <string name="FreeThrow">Free Throw</string>
 </resources>
