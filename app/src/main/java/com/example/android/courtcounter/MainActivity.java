@@ -9,26 +9,41 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private int scoreTeamA = 0;
-    private int scoreTeamB = 0;
+    private int scoreTeamA ;
+    private int scoreTeamB ;
     private boolean started = false;
-    private int numTeamA3Points=0,numTeamA2Points=0,numTeamA1Points=0,numTeamB3Points=0,numTeamB2Points=0,numTeamB1Points=0;
-    TextView scoreViewA,scoreViewB,txt3A,txt2A,txt1A,txt3B,txt2B,txt1B;
+    private int numTeamA3Points,
+            numTeamA2Points,
+            numTeamA1Points,
+            numTeamB3Points,
+            numTeamB2Points,
+            numTeamB1Points;
+    TextView scoreViewA,
+            scoreViewB,
+            txt3A,
+            txt2A,
+            txt1A,
+            txt3B,
+            txt2B,
+            txt1B;
     Button btnStart;
-    long startTime=0L,timeInMilliSecond=0L,timeSwapBuff=0L,updateTime=0L;
+    long startTime=0L,
+            timeInMilliSecond=0L,
+            timeSwapBuff=0L,
+            updateTime=0L;
     TextView txtTime;
-    Handler h=new Handler();
-    Runnable updateTimeThread=new Runnable() {
+    Handler h = new Handler();
+    Runnable updateTimeThread = new Runnable() {
         @Override
         public void run() {
-            timeInMilliSecond=SystemClock.uptimeMillis()-startTime;
-            updateTime=timeSwapBuff+timeInMilliSecond;
-            int secs=(int)(updateTime/1000);
-            int mins=secs/60;
-            secs%=60;
-            int milliSecs=(int)updateTime%1000;
-            txtTime.setText(" "+mins+":"+String.format("%02d",secs)+":"+String.format("%03d",milliSecs));
-            h.postDelayed(this,0);
+            timeInMilliSecond = SystemClock.uptimeMillis() - startTime;
+            updateTime = timeSwapBuff + timeInMilliSecond;
+            int secs = (int) (updateTime / 1000);
+            int mins = secs / 60;
+            secs %= 60;
+            int milliSecs = (int) updateTime % 1000;
+            txtTime.setText(String.format(" %d:%s:%s", mins, String.format("%02d", secs), String.format("%03d", milliSecs)));
+            h.postDelayed(this, 0);
 
         }
     };
@@ -124,16 +139,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       txtTime=(TextView)findViewById(R.id.time_text);
-        txt3A=(TextView)findViewById(R.id.Team_A_3_points);
-        txt2A=(TextView)findViewById(R.id.Team_A_2_points);
-        txt1A=(TextView)findViewById(R.id.Team_A_1_points);
-        txt3B=(TextView)findViewById(R.id.Team_B_3_points);
-        txt2B=(TextView)findViewById(R.id.Team_B_2_points);
-        txt1B=(TextView)findViewById(R.id.Team_B_1_points);
-        scoreViewB = (TextView) findViewById(R.id.team_b_score);
-        scoreViewA = (TextView) findViewById(R.id.team_a_score);
-        btnStart= (Button)findViewById(R.id.button_start);
+       txtTime=(TextView) findViewById(R.id.time_text);
+        txt3A=findViewById(R.id.Team_A_3_points);
+        txt2A=findViewById(R.id.Team_A_2_points);
+        txt1A=findViewById(R.id.Team_A_1_points);
+        txt3B=findViewById(R.id.Team_B_3_points);
+        txt2B=findViewById(R.id.Team_B_2_points);
+        txt1B=findViewById(R.id.Team_B_1_points);
+        scoreViewB =  findViewById(R.id.team_b_score);
+        scoreViewA =  findViewById(R.id.team_a_score);
+        btnStart= findViewById(R.id.button_start);
     }
 /**
  * To save on rotating
@@ -198,7 +213,7 @@ public void onRestoreInstanceState(Bundle savedInstanceState) {
             int mins=secs/60;
             secs%=60;
             int milliSecs=(int)updateTime%1000;
-            txtTime.setText(" "+mins+":"+String.format("%02d",secs)+":"+String.format("%03d",milliSecs));
+            txtTime.setText(String.format(" %d:%s:%s", mins, String.format("%02d", secs), String.format("%03d", milliSecs)));
             updateTime=0;
         }
 
